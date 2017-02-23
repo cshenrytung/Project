@@ -39,6 +39,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mk4-hS-GJw">
                                         <rect key="frame" x="0.0" y="66.5" width="91" height="30"/>
                                         <state key="normal" title="I am a Button"/>
+                                        <connections>
+                                            <action selector="setDefaultText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N8I-3f-H82"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -53,6 +56,10 @@
                             <constraint firstAttribute="trailingMargin" secondItem="l5V-8M-eDH" secondAttribute="trailing" id="ZSQ-UY-i07"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mealNameLabel" destination="SNN-tt-n0d" id="pe5-4s-uyY"/>
+                        <outlet property="nameTextField" destination="Ibi-lL-TYC" id="ma4-o9-k0t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
