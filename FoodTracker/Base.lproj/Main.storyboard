@@ -23,16 +23,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="l5V-8M-eDH">
-                                <rect key="frame" x="16" y="40" width="343" height="425"/>
+                                <rect key="frame" x="16" y="40" width="343" height="424.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am a Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNN-tt-n0d">
-                                        <rect key="frame" x="0.0" y="0.0" width="92" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="91.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="I am placeholder" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ibi-lL-TYC">
-                                        <rect key="frame" x="0.0" y="29" width="343" height="30"/>
+                                        <rect key="frame" x="0.0" y="28.5" width="343" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Ibi-lL-TYC" secondAttribute="height" multiplier="343:30" id="jp7-hD-04g"/>
                                         </constraints>
@@ -41,14 +41,21 @@
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mk4-hS-GJw">
-                                        <rect key="frame" x="0.0" y="67" width="91" height="30"/>
+                                        <rect key="frame" x="0.0" y="66.5" width="91" height="30"/>
                                         <state key="normal" title="I am a Button"/>
                                         <connections>
                                             <action selector="setDefaultText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N8I-3f-H82"/>
                                         </connections>
                                     </button>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="qdw-HE-BPO">
-                                        <rect key="frame" x="0.0" y="105" width="320" height="320"/>
+                                        <rect key="frame" x="0.0" y="104.5" width="320" height="320"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="qdw-HE-BPO" secondAttribute="height" multiplier="1:1" id="ox7-aU-quc"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="GJV-VC-LMS" appends="YES" id="80b-W0-62e"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -66,9 +73,15 @@
                     <connections>
                         <outlet property="mealNameLabel" destination="SNN-tt-n0d" id="pe5-4s-uyY"/>
                         <outlet property="nameTextField" destination="Ibi-lL-TYC" id="ma4-o9-k0t"/>
+                        <outlet property="photoImageView" destination="qdw-HE-BPO" id="224-Zm-X7m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="GJV-VC-LMS">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="Ub9-1c-fJi"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="116" y="123.68815592203899"/>
         </scene>
