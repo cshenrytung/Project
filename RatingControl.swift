@@ -64,7 +64,7 @@ import UIKit
         
         ratingButtons.removeAll()
         
-        for _ in 0..<starCount {
+        for index in 0..<starCount {
             let button = UIButton()
             button.setImage(emptyStar, for: .normal)
             button.setImage(filledStar, for: .selected)
@@ -75,6 +75,9 @@ import UIKit
             button.translatesAutoresizingMaskIntoConstraints = false
             button.heightAnchor.constraint(equalToConstant: startSize.height).isActive = true
             button.widthAnchor.constraint(equalToConstant: startSize.width).isActive = true
+            
+            //Set the accessibility label
+            button.accessibilityLabel = "Set \(index + 1) star rating"
             
             // Setup the button action
             button.addTarget(self, action: #selector(RatingControl.ratingButtonTapped(button:)), for: .touchUpInside)
@@ -105,6 +108,29 @@ import UIKit
     
     private func updateButtonSelectionStates() {
         for (index, button) in ratingButtons.enumerated() {
+            let hintString: String?
+            if rating == index + 1 {
+                hintString = "Tap to reset the rating to zero."
+            } else {
+                hintString = nil
+            }
+            
+            // Calcuate the value string
+            let valueString: String
+            switch (rating) {
+            case 0:
+                valueString = "No rating set."
+            case 1:
+                valueString = "1 star set."
+            default:
+                valueString = "\(rating) stars set."
+                
+            }
+            
+            //assign th hint string and value string
+            button.accessibilityHint = hintString
+            button.accessibilityValue = valueString
+            
             button.isSelected = index < rating
         }
     }
